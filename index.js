@@ -10,6 +10,10 @@ app.use('/images',express.static(path.join(__dirname,'images')))
 
 
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+
+
 
 const start = async () => {
     try {
