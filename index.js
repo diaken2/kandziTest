@@ -4,10 +4,6 @@ const mongoose = require('mongoose')
 const path=require('path')
 const PORT = process.env.PORT || 8888
 const routes = require("./routes/auth.route")
-app.use(express.json({ extended: true }))
-app.use("/api", routes)
-app.use('/images',express.static(path.join(__dirname,'images')))
-
 app.use(function(req, res, next) {
 
 
@@ -18,6 +14,11 @@ app.use(function(req, res, next) {
 
   
   });
+app.use(express.json({ extended: true }))
+app.use("/api", routes)
+app.use('/images',express.static(path.join(__dirname,'images')))
+
+
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
